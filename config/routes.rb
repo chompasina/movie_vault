@@ -3,9 +3,16 @@ Rails.application.routes.draw do
   root to: "movies#index"
   
   resources :users, only: [:new, :create]
-  resources :movies
+  resources :movies, only: [:index, :new, :create, :edit, :update, :show]
+  
+  namespace :api do
+    namespace :v1 do
+      resources :movies, only: [:index, :update, :show, :create, :edit, :destroy]
+    end
+  end
   
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
+  
 end

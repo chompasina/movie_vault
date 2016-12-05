@@ -18,13 +18,15 @@
       <th>Title</th>
       <th>Note</th>
       <th>Watched?</th> 
+      <th>Update Status</th> 
     </tr>
     <tbody id="movies">
     <% @movies.each do |movie| %>
     <tr class="movie" data-id="<%= movie.id %>" id='status-<%=movie.watched%>' data-status="<%=movie.watched%>">
-      <td class='title-field' data-id="<%= movie.id %>" contenteditable="true"> <%= movie.title %> </td>
+      <td class='title-field' data-id="<%= movie.id %>" contenteditable="true" style="text-decoration: <% if movie.watched %> line-through <% else %> none <% end %>" > <%= movie.title %> </td>
       <td class='note-field' data-id="<%= movie.id %>" contenteditable="true"> <%= movie.note %> </td>
       <td class='status' id='movie-status-<%=movie.id%>'>Watched? <%= movie.watched %></td>
+      <td class="button" id="toggle-movie-status"><button data-id="<%= movie.id %>" class="button" data-status="<%=movie.watched%>"><% if movie.watched %>Mark as Unwatched<% else %> Mark as Watched <% end %></button></td>
       
     </tr>
     <% end %>

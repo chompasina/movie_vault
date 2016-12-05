@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem 'rails_12factor', group: :production
+gem 'responders'
 
 
 group :development, :test do
