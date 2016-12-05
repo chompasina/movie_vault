@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:new, :create]
   resources :movies, only: [:index, :new, :create, :edit, :update, :show]
+  resources :tags
   
   namespace :api do
     namespace :v1 do
