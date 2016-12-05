@@ -1,3 +1,33 @@
 <div class="page-header">
   <h1>My Movie Vault <small>Welcome, <%= @user.username %></small></h1>
 </div>
+
+<h3>Add new movie:</h3>
+<%= form_for Movie.new do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :note %>
+  <%= f.text_field :note %>
+  <%= f.submit "Add movie" %>
+<% end %>
+
+<h3>Your Movies</h3>
+  <div id="movies-list">
+  <table>
+    <tr id="header-row">
+      <th>Title</th>
+      <th>Note</th>
+      <th>Watched?</th> 
+    </tr>
+    <tbody id="movies">
+    <% @movies.each do |movie| %>
+    <tr class="movie" data-id="<%= movie.id %>" id='status-<%=movie.watched%>' data-status="<%=movie.watched%>">
+      <td class='title-field' data-id="<%= movie.id %>" contenteditable="true"> <%= movie.title %> </td>
+      <td class='note-field' data-id="<%= movie.id %>" contenteditable="true"> <%= movie.note %> </td>
+      <td class='status' id='movie-status-<%=movie.id%>'>Watched? <%= movie.watched %></td>
+      
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
