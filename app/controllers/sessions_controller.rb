@@ -4,14 +4,13 @@ class SessionsController < ApplicationController
   end
   
   def create
-    # require "pry"; binding.pry
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id
         flash[:success] = "Hi, #{current_user.username}"
         redirect_to root_path
     else
-      flash.now[:danger] = "Invalid credentials. Please try again."
+      flash[:danger] = "Invalid credentials. Please try again."
       redirect_to login_path
     end
   end
