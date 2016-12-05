@@ -6,7 +6,7 @@ RSpec.feature "User can sign up" do
     
     expect(current_path).to eq(login_path)
     
-    click_on("Sign up")
+    click_on("Sign Up")
     
     expect(current_path).to eq(new_user_path)
     fill_in "Username", with: "Tommasina"
@@ -15,8 +15,8 @@ RSpec.feature "User can sign up" do
     fill_in "Password confirmation", with: "password"
     click_on("Create Account")
     
-    expect(current_path).to eq(links_path)
-    expect(page).to have_content("Your account was successfully created")
+    expect(current_path).to eq(movies_path)
+    expect(page).to have_content("Your account was successfully created, Tommasina")
     expect(page).to have_content("Welcome, Tommasina")
   end
 end
