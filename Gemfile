@@ -16,10 +16,10 @@ gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'selenium-webdriver'
 end
 
 group :test do
+  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
@@ -27,6 +27,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
+  gem 'pry'
 end
 
 group :development do
