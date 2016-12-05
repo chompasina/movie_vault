@@ -1,0 +1,7 @@
+<h1>Links Tagged with <%= @tag.name %></h1>
+
+<ul>
+  <% @tag.movies.each do |movie| %>
+    <li><%= link_to movie.title, movie_path(movie) %></li>
+  <% end %>
+</ul>

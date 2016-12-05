@@ -1,0 +1,14 @@
+<h1>Movie: <%= @movie.title %></h1>
+<p>
+
+Note: <%= @movie.note %>
+</p>
+<p>
+Watched? <%= @movie.watched %>
+</p>
+<p>
+Tags:
+<% @movie.tags.each do |tag| %>
+  <%= link_to tag.name, tag_path(tag) %>
+<% end %>
+</p>
