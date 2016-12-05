@@ -1,6 +1,9 @@
 <div class="page-header">
   <h1>My Movie Vault <small>Welcome, <%= @user.username %></small></h1>
 </div>
+<div class="search">
+  <p>Search: <input type="text" name="search" id="search-bar"> </p>
+</div>
 
 <h3>Add new movie:</h3>
 <%= form_for Movie.new do |f| %>
