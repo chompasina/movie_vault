@@ -11,7 +11,6 @@ RSpec.feature "User can edit movies" do
     click_button "Login"
     
     within('#movies-list') do
-      # find('.title-field').click
       click_link "Edit"
       expect(current_path).to eq(edit_movie_path(movie))
     end
@@ -35,7 +34,6 @@ RSpec.feature "User can edit movies" do
     click_button "Login"
     
     within('#movies-list') do
-      # find('.title-field').click
       click_link "Edit"
     end
     
