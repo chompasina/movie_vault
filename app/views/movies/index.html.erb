@@ -45,11 +45,11 @@
       <td class='title-field' data-id="<%= movie.id %>" contenteditable="true" style="text-decoration: <% if movie.watched %> line-through <% else %> none <% end %>" > <%= movie.title %> </td>
       <td class='note-field' data-id="<%= movie.id %>" contenteditable="true"> <%= movie.note %> </td>
       <td class='status' id='movie-status-<%=movie.id%>'>Watched? <%= movie.watched %></td>
-      <td class="button" id="toggle-movie-status"><button data-id="<%= movie.id %>" class="button" data-status="<%=movie.watched%>"><% if movie.watched %>Mark as Unwatched<% else %> Mark as Watched <% end %></button></td>
-      <td> <% movie.tags.each do |tag| %>
+      <td class="tags"> <% movie.tags.each do |tag| %>
         <%= link_to tag.name, tag_path(tag) %>
         <button class="delete-tag btn btn-danger" id=" <%= MovieTag.where(tag_id: tag.id).first.id %> " data-id="<%=tag.id %>" name="button">X</button><br>
       <% end %> </td>
+      <td class="button" id="toggle-movie-status"><button data-id="<%= movie.id %>" class="button" data-status="<%=movie.watched%>"><% if movie.watched %>Mark as Unwatched<% else %> Mark as Watched <% end %></button></td>
       <td class="edit"> <%= link_to "Edit", edit_movie_path(movie) %> </td>
     </tr>
     <% end %>
