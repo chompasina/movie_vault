@@ -10,6 +10,13 @@
   <button type="button" class="sort-button" name="sort">Sort</button>
 </div>
 
+<div class="filter-by-status">
+  <p>Filter: 
+    <button type="button" class="filter" id="filter-watched">Watched</button>
+    <button type="button" class="filter" id="filter-unwatched">Unwatched</button>
+  </p>
+</div>
+
 <h3>Add new movie:</h3>
 <%= form_for Movie.new do |f| %>
   <%= f.label :title %>
