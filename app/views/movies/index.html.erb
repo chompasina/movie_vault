@@ -7,13 +7,13 @@
 </div>
 
 <div class="sort">
-  <button type="button" class="sort-button" name="sort">Sort</button>
+  <button type="button" class="sort-button btn btn-primary" name="sort">Sort</button>
 </div>
-
+<br>
 <div class="filter-by-status">
   <p>Filter: 
-    <button type="button" class="filter" id="filter-watched">Watched</button>
-    <button type="button" class="filter" id="filter-unwatched">Unwatched</button>
+    <button type="button" class="filter btn btn-primary" id="filter-watched">Watched</button>
+    <button type="button" class="filter btn btn-primary" id="filter-unwatched">Unwatched</button>
   </p>
 </div>
 
@@ -25,12 +25,12 @@
   <%= f.text_field :note %>
   <%= f.label :tag_list %>
   <%= f.text_field :tag_list %>
-  <%= f.submit "Add movie" %>
+  <%= f.submit "Add movie", class: "btn btn-primary" %>
 <% end %>
 
 <h3>Your Movies</h3>
   <div id="movies-list">
-  <table>
+  <table class="table table-striped">
     <tr id="header-row">
       <th>Title</th>
       <th>Note</th>
@@ -50,7 +50,7 @@
         <%= link_to tag.name, tag_path(tag) %>
         <button class="delete-tag btn btn-danger" id=" <%= MovieTag.where(tag_id: tag.id).first.id %> " data-id="<%=tag.id %>" name="button">X</button><br>
       <% end %> </td>
-      <td class="button" id="toggle-movie-status"><button data-id="<%= movie.id %>" class="button" data-status="<%=movie.watched%>"><% if movie.watched %>Mark as Unwatched<% else %> Mark as Watched <% end %></button></td>
+      <td class="button" id="toggle-movie-status"><button data-id="<%= movie.id %>" class="button <% if movie.watched %> btn btn-warning <% else %> btn btn-success <% end %>" data-status="<%=movie.watched%>"><% if movie.watched %>Mark as Unwatched<% else %> Mark as Watched <% end %></button></td>
       <td class="edit"> <%= link_to "Edit", edit_movie_path(movie) %> </td>
       <td class="delete"> <%= link_to "Delete", movie_path(movie), method: :delete %> </td>
     </tr>
