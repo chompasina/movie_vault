@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   
   resources :users, only: [:new, :create]
   resources :movies, only: [:index, :new, :create, :edit, :update, :show]
+  resources :tags
   
   namespace :api do
     namespace :v1 do
       resources :movies, only: [:index, :update, :show, :create, :edit, :destroy]
+      resources :movie_tags, only: [:destroy]
     end
   end
   
