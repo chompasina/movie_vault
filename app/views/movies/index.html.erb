@@ -18,12 +18,13 @@
 </div>
 
 <h3>Add new movie:</h3>
+<p>(Separate multiple tags with a comma)</p>
 <%= form_for Movie.new do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :note %>
   <%= f.text_field :note %>
-  <%= f.label :tag_list %>
+  <%= f.label :tag_list %> 
   <%= f.text_field :tag_list %>
   <%= f.submit "Add movie", class: "btn btn-primary" %>
 <% end %>
