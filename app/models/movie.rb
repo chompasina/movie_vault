@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
   belongs_to :user
   validates :title, presence: true
-  has_many :movie_tags
+  has_many :movie_tags, dependent: :destroy
   has_many :tags, through: :movie_tags
   
   def tag_list
