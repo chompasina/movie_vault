@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "movies#index"
   
   resources :users, only: [:new, :create]
-  resources :movies, only: [:index, :new, :create, :edit, :update, :show]
+  resources :movies, only: [:index, :new, :create, :edit, :update, :show, :destroy]
   resources :tags
   
   namespace :api do

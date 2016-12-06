@@ -38,6 +38,7 @@
       <th>Tags</th> 
       <th>Update Status</th> 
       <th>Edit</th> 
+      <th>Delete</th> 
     </tr>
     <tbody id="movies">
     <% @movies.each do |movie| %>
@@ -51,6 +52,7 @@
       <% end %> </td>
       <td class="button" id="toggle-movie-status"><button data-id="<%= movie.id %>" class="button" data-status="<%=movie.watched%>"><% if movie.watched %>Mark as Unwatched<% else %> Mark as Watched <% end %></button></td>
       <td class="edit"> <%= link_to "Edit", edit_movie_path(movie) %> </td>
+      <td class="delete"> <%= link_to "Delete", movie_path(movie), method: :delete %> </td>
     </tr>
     <% end %>
     </tbody>
