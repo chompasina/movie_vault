@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :movies, only: [:index, :update, :show, :create, :edit, :destroy]
+      resources :movie_tags, only: [:destroy]
     end
   end
   

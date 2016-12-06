@@ -20,4 +20,5 @@ $(document).ready(function(){
   search();
   sort();
   filter();
+  deleteTag();
 })
